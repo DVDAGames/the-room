@@ -1,0 +1,57 @@
+{
+  "name": "the room",
+  "version": "0.0.1",
+  "private": true,
+  "description": "LD37 Entry",
+  "keywords": [
+    "ludum dare",
+    "game jam",
+    "ld37",
+    "electron",
+    "game"
+  ],
+  "homepage": "https://github.com/dvdagames/the-room",
+  "bugs": "https://github.com/dvdagames/the-room/issues",
+  "author": "dvdagames",
+  "main": "window.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/dvdagames/the-room"
+  },
+  "scripts": {
+    "clean": "rm -rf ../dist/$npm_package_version",
+    "package:osx": "electron-packager . $npm_package_electron_appName --platform=darwin --arch=x64 --asar --out=\"../dist/$npm_package_version\" --app-version=$npm_package_version --app-copyright=$npm_package_electron_appCopyright --app-bundle-id=$npm_package_electron_appBundleId --app-helper-id=$npm_package_electron_appBundleId --app-categoy-type=$npm_package_electron_appCategoyType",
+    "package:win": "electron-packager . $npm_package_electron_appName --platform=win32 --arch=all --asar --out=\"../dist/$npm_package_version\" --app-version=$npm_package_version --app-copyright=$npm_package_electron_appCopyright --version-string.CompanyName=$npm_package_electron_versionString_companyName --version-string.ProductName=$npm_package_electron_versionString_productName",
+    "package:linux": "electron-packager . $npm_package_electron_appName --platform=linux --arch=all --asar --out=\"../dist/$npm_package_version\" --app-version=$npm_package_version --app-copyright=$npm_package_electron_appCopyright --version-string.CompanyName=$npm_package_electron_versionString_companyName",
+    "package:all": "npm run package:osx && npm run package:win && npm run package:linux",
+    "package": "npm run clean && npm run package:all"
+  },
+  "devDependencies": {
+    "electron-packager": "^6.0.0",
+    "electron-prebuilt": "^0.37.2"
+  },
+  "dependencies": {
+    "electron": "^1.4.11",
+    "hapi": "^16.0.1",
+    "inert": "^4.0.3",
+    "open": "0.0.5",
+    "react": "^15.4.1",
+    "react-dom": "^15.4.1",
+    "react-router": "^3.0.0"
+  },
+  "engines": {
+    "node": ">=6.x.x",
+    "npm": ">=3.x.x"
+  },
+  "electron": {
+    "appName": "the room",
+    "appCopyright": "Copyright 2016 Dead Villager Dead Adventurer Games",
+    "appBundleId": "com.dvdagames.the-room" ,
+    "appCategoryType": "public.app-category.games",
+    "helperBundleId": "com.dvdagames.the-room-helper",
+    "versionString": {
+      "companyName": "Dead Villager Dead Adventurer Games",
+      "productName": "the room"
+    }
+  }
+}
